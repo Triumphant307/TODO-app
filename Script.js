@@ -14,7 +14,7 @@ addButton.addEventListener('click', () => {
 })
 
 todoForm.addEventListener('submit' , e => {
-    e.preventDefault()
+    // e.preventDefault()
     addTodo()
 })
 
