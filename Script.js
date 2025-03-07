@@ -6,6 +6,8 @@ const addButton = document.getElementById('add-button')
 let allTodos = getTodos()
 updateTodoList()
 
+
+
 addButton.addEventListener('click', () => {
     addTodo()
 })
@@ -76,4 +78,14 @@ function saveTodos(){
 function getTodos(){
     const todos = localStorage.getItem("todos") || "[]"
     return JSON.parse(todos)
+}
+
+if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("./service-worker.js")
+    .then((registration) => {
+        console.log("Service Worker Registered" , registration.scope);
+    })
+    .catch(err => {
+        console.log("Service Worker Registration Failed", err);
+    });
 }
