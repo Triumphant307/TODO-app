@@ -4,110 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <title>TO Do app</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>TO_DO_APP</title>
 </head>
 <body>
-       <div class="background-image">
-        <img src="assets/bg-desktop-dark.jpg" alt="">
-       </div>
-
-       <div class="container">
-          <div class="header">
-            <div class="title">
-                TODO
-            </div>
-            <div class="theme">
-                <img src="assets/icon-sun.svg" alt="">
-            </div>
-          </div>
-          <div class="new-todo">
-                <div class="check">
-                    <div class="check-mark">
-
-                    </div>
-                </div>
-                <div class="new-todo-input">
-                    <form action="" onsubmit="addItem(event)">
-                        <input id="todo-input" type="text" placeholder="Create a new todo">
-                    </form>
-                </div>
-          </div>
-          <div class="todo-items-wrapper">
-             <div class="todo-items">
-                  <div class="todo-item">
-                           <div class="check">
-                              <div class="check-mark">
-                                  <img src="assets/icon-check.svg" alt="">
-                              </div>
-                           </div>
-                           <div class="todo-text">
-                              cut the lawn
-                           </div>
-                    </div>
-                    <div class="todo-item">
-                        <div class="check">
-                           <div class="check-mark">
-                               <img src="assets/icon-check.svg" alt="">
-                           </div>
-                        </div>
-                        <div class="todo-text">
-                           cut the lawn
-                        </div>
-                 </div>
-                 <div class="todo-item">
-                    <div class="check">
-                       <div class="check-mark">
-                           <img src="assets/icon-check.svg" alt="">
-                       </div>
-                    </div>
-                    <div class="todo-text">
-                       cut the lawn
-                    </div>
-             </div>
-
-             </div>
-             <div class="todo-items-info">
-                      <div class="items-left">
-                        5 items-left
-                      </div>
-                      <div class="items-statuses">
-                        <span class="active">All</span>
-                        <span>Active</span>
-                        <span>Completed</span>
-                      </div>
-                      <div class="items-clear">
-                           <span>Clear Completed</span>
-                      </div>
-             </div>
-          </div>
-       </div>
-
+    <h1>TO DO APP</h1>
+    <div class="wrapper">
+        <form action="">
+            <input type="text" placeholder="write anything and hit enter to add" autocomplete="off" id="todo-input">
+            <button id="add-button">ADD</button>
+        </form>
+        <ul id="todo-list">
+            <!-- <li class="todo">
+               <input type="checkbox" id="todo-1">
+               <label class="custom-checkbox" for="todo-1">&#x2713;</label>
+               <label for="todo-1" class="todo-text">webdev project with html css and js</label>
+               <button class="delete-button">&#x1F5D1;</button>
+            </li>
+            <li class="todo">
+                <input type="checkbox" id="todo-2">
+                <label class="custom-checkbox" for="todo-2">&#x2713;</label>
+                <label for="todo-2" class="todo-text">webdev project with html css and js</label>
+                <button class="delete-button">&#x1F5D1;</button>
+             </li> -->
+        </ul>
+    </div>
 </body>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAy14-uroVRL5DwLogncOob_aY4IAZOcB8",
-      authDomain: "to-do-live-12dfa.firebaseapp.com",
-      projectId: "to-do-live-12dfa",
-      storageBucket: "to-do-live-12dfa.firebasestorage.app",
-      messagingSenderId: "493316565314",
-      appId: "1:493316565314:web:780f1e07a369311f6780db",
-      measurementId: "G-P5GVFVW7R7"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-<script src="Script.js"></script>
+<script src="script.js"></script>
 </html>
