@@ -7,7 +7,7 @@ let allTodos = getTodos()
 updateTodoList()
 
 
-todoForm.addEventListener('submit' , e =>{
+todoForm.addEventListener('submit' , e => {
     e.preventDefault()
     addTodo()
 })
@@ -48,7 +48,7 @@ function createTodoItem(todo , todoIndex){
     `
     const deleteButton = todoLI.querySelector('.delete-button')
     deleteButton.addEventListener('click' , () => {
-           deleteTodoItem(todoIndex)
+        deleteTodoItem(todoIndex)
     })
     const checkbox = todoLI.querySelector('input')
     checkbox.addEventListener('change' , () => {

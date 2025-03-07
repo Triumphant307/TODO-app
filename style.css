@@ -15,6 +15,9 @@ html{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16pt;
     color: var(--text-color);
+    overflow-y: auto; 
+    overflow-x: hidden;
+    scrollbar-width: thin;
 }
 
 body{
@@ -132,9 +135,6 @@ form{
 
 input[type="checkbox"]:checked ~ .custom-checkbox{
     background-color: var(--accent-color);
-}
-
-input[type="checkbox"]:checked ~ .custom-checkbox{
     color: var(--primary-color);
 }
 
