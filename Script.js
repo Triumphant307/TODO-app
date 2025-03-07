@@ -1,11 +1,14 @@
 const todoForm = document.querySelector('form')
 const todoInput = document.getElementById('todo-input')
 const todoListUl = document.getElementById('todo-list')
-
+const addButton = document.getElementById('add-button')
 
 let allTodos = getTodos()
 updateTodoList()
 
+addButton.addEventListener('click', () => {
+    addTodo()
+})
 
 todoForm.addEventListener('submit' , e => {
     e.preventDefault()
@@ -29,7 +32,7 @@ function addTodo(){
 function updateTodoList(){
     todoListUl.innerHTML = ""
     allTodos.forEach((todo , todoIndex) =>{
-       const todoitem = createTodoItem(todo , todoIndex)
+        todoitem = createTodoItem(todo , todoIndex)
         todoListUl.appendChild(todoitem)
     })
 }
