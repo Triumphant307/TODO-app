@@ -1,20 +1,17 @@
-
-const todoForm = document.querySelector('.todoform')
 const todoInput = document.getElementById('todo-input')
+const todoForm = document.querySelector('form')
 const todoListUl = document.getElementById('todo-list')
 const addButton = document.getElementById('add-button')
 
 let allTodos = getTodos()
 updateTodoList()
 
-
-
 addButton.addEventListener('click', () => {
     addTodo()
 })
 
 todoForm.addEventListener('submit' , e => {
-    // e.preventDefault()
+    e.preventDefault()
     addTodo()
 })
 
@@ -28,7 +25,7 @@ function addTodo(){
         allTodos.push(todoObject)
         updateTodoList()
         saveTodos()
-        showToast("Todo added successfully✅")
+        showToast("Todo added ✅")
         todoInput.value = ""
     }
     
@@ -83,7 +80,9 @@ function createTodoItem(todo , todoIndex){
                     icon: "./assets/pic/appicon.png"
                 })
             }
+            showToast("Todo completed ✅")
         }
+
     })
     checkbox.checked = todo.completed
 
