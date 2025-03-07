@@ -18,6 +18,12 @@
             "sizes": "1894x870",
             "type": "image/png",
             "form_factor": "wide"
+        },
+        {
+            "src" : "./asset/pic/phone.png",
+            "sizes":"225x225",
+            "type":"image/png",
+            "form_factor":"narrow"
         }
     ]
 }

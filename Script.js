@@ -1,3 +1,4 @@
+
 const todoForm = document.querySelector('.todoform')
 const todoInput = document.getElementById('todo-input')
 const todoListUl = document.getElementById('todo-list')
@@ -27,16 +28,31 @@ function addTodo(){
         allTodos.push(todoObject)
         updateTodoList()
         saveTodos()
+        showToast("Todo added successfully✅")
         todoInput.value = ""
     }
+    
+if(Notification.permission === "granted"){
+    new Notification("Todo Added ✅" , {
+        body: todoText,
+        icon: "./assets/pic/appicon.png",
+    })
+}
 }
 
 function updateTodoList(){
     todoListUl.innerHTML = ""
     allTodos.forEach((todo , todoIndex) =>{
-        todoitem = createTodoItem(todo , todoIndex)
+      const  todoitem = createTodoItem(todo , todoIndex)
         todoListUl.appendChild(todoitem)
     })
+
+    if(allTodos.length === 0){
+        document.body.style.overflow = "hidden"
+    }
+    else{
+        document.body.style.overflow = "auto"
+    }
 }
 
 function createTodoItem(todo , todoIndex){
@@ -59,8 +75,19 @@ function createTodoItem(todo , todoIndex){
     checkbox.addEventListener('change' , () => {
         allTodos[todoIndex].completed = checkbox.checked
         saveTodos()
+
+        if(checkbox.checked) {
+            if(Notification.permission === "granted"){
+                new Notification("Todo completed ✅" , {
+                    body: todo.text,
+                    icon: "./assets/pic/appicon.png"
+                })
+            }
+        }
     })
     checkbox.checked = todo.completed
+
+    
     return todoLI
 }
 
@@ -89,3 +116,48 @@ if("serviceWorker" in navigator){
         console.log("Service Worker Registration Failed", err);
     });
 }
+
+if(Notification.permission !== "granted"){
+    Notification.requestPermission()
+}
+
+function showToast(message) {
+    if(document.querySelector(".toast")) return
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.innerHTML = message;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+
+}
+
+//TOAST NOTIFICATION STYLE
+const style = document.createElement("style")
+style.innerHTML = `
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: var(--background);
+    padding: 10px 20px;
+    border-radius: 1000px;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 255, 196, 0.8);
+    animation: fadeInOut 3s ease;
+    z-index: 999;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+`
+document.head.appendChild(style)
+
+
