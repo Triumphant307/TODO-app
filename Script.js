@@ -29,7 +29,7 @@ function addTodo(){
 function updateTodoList(){
     todoListUl.innerHTML = ""
     allTodos.forEach((todo , todoIndex) =>{
-        todoitem = createTodoItem(todo , todoIndex)
+       const todoitem = createTodoItem(todo , todoIndex)
         todoListUl.appendChild(todoitem)
     })
 }
