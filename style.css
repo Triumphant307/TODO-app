@@ -16,9 +16,10 @@ html{
     font-size: 16pt;
     color: var(--text-color);
     scroll-behavior: smooth;
-    overflow-x: hidden;
     scrollbar-width: thin;
 }
+
+
 
 body{
     min-height: 100vh;
@@ -27,6 +28,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+}
+
+body.has-overflow{
+    overflow-y: auto;
 }
 
 h1{

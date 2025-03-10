@@ -27,7 +27,9 @@ function addTodo(){
         saveTodos()
         showToast("Todo added ✅")
         todoInput.value = ""
-    }
+    } else if(todoText.length === 0) return
+
+
     
 if(Notification.permission === "granted"){
     new Notification("Todo Added ✅" , {
@@ -138,7 +140,7 @@ style.innerHTML = `
 
 .toast {
     position: fixed;
-    bottom: 20px;
+    bottom: 10vh;
     left: 50%;
     transform: translateX(-50%);
     background: var(--accent-color);
@@ -148,7 +150,8 @@ style.innerHTML = `
     font-weight: 600;
     box-shadow: 0 0 10px rgba(0, 255, 196, 0.8);
     animation: fadeInOut 3s ease;
-    z-index: 999;
+    z-index: 9999;
+    max-width: 90%;
 }
 @keyframes fadeInOut {
     0% { opacity: 0; }
@@ -159,4 +162,14 @@ style.innerHTML = `
 `
 document.head.appendChild(style)
 
-
+navigator.serviceWorker.ready.then(registration => {
+    registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: "YOUR_SERVER_KEY"
+    }).then(subscription => {
+        console.log("Push Subscription: " , subscription);
+        
+    }).catch(error => {
+        console.error("Push Subscription Failed: " , error);
+    })
+})
