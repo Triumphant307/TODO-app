@@ -27,6 +27,7 @@ function addTodo(){
         saveTodos()
         showToast("Todo added ✅")
         todoInput.value = ""
+        todoInput.blur()
     } else if(todoText.length === 0) return
 
 
