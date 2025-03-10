@@ -12,6 +12,7 @@ addButton.addEventListener('click', () => {
 
 todoForm.addEventListener('submit' , e => {
     e.preventDefault()
+     todoInput.blur()
     addTodo()
 })
 
