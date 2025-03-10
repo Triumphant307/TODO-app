@@ -15,6 +15,14 @@ todoForm.addEventListener('submit' , e => {
     addTodo()
 })
 
+todoInput.addEventListener('keydown' , (event) =>{
+    if(event.key === 'Enter'){
+        event.preventDefault()
+        todoInput.blur()
+        addTodo()
+    }
+})
+
 function addTodo(){
     const todoText = todoInput.value.trim()
     if(todoText.length > 0){
